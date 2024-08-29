@@ -4,7 +4,8 @@ digraph Instrument
     // Inst -> Amp (not POST) -> Filter -> Amp (POST) -> EQ -> Send
     rankdir="LR";
     shape="box";
-    // splines="ortho";
+    len="0.1";
+
     node [fontname="Arial", size="0.1", fontsize="9", width="0.1", height="0.1", shape="none"];
 
     subgraph Track1 {
@@ -113,9 +114,8 @@ digraph Instrument
 
     {
         deSum1 [label="+", shape="circle", rank="same"];
-        Sdl1 -> deSum1;
-        Sdl27 -> deSum1 [style="dotted"];
-        // Sdl8 -> deSum1;
+        Sdl1 -> M1D -> deSum1;
+        Sdl27 -> M27D -> deSum1 [style="dotted"];
     }
 
     {
@@ -126,7 +126,13 @@ digraph Instrument
         reSum1 [label="+", shape="circle"];
 
         M1 [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
+        M1R [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
+        M1C [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
+        M1D [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
         M27 [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
+        M27R [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
+        M27D [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
+        M27C [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
         // M8 [shape="triangle", orientation="270", fontsize="6", label="VT8", width=0.5, height=0.4];
         Mix [label="+", shape="circle"];
         Dry1 -> M1;
@@ -135,11 +141,11 @@ digraph Instrument
         M1 -> Mix;
         // M8 -> Mix;
         M27 -> Mix;
-        Srv1 -> reSum1;
-        Sch1 -> chSum1;
+        Srv1 -> M1R -> reSum1;
+        Sch1 -> M1C -> chSum1;
 
-        Srv27 -> reSum1 [style="dotted"];
-        Sch27 -> chSum1 [style="dotted"];
+        Srv27 -> M27R -> reSum1 [style="dotted"];
+        Sch27 -> M27C -> chSum1 [style="dotted"];
 
         // Srv8 -> reSum1;
         // Sch8 -> chSum1;
