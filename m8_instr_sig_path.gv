@@ -5,21 +5,25 @@ digraph Instrument
     rankdir="LR";
     shape="box";
     len="0.1";
+    nodesep="0.05";
+    ranksep="0.19";
 
     node [fontname="Arial", size="0.1", fontsize="9", width="0.1", height="0.1", shape="none"];
+    edge [arrowsize="0.5"];
 
     subgraph Track1 {
         cluster=true;
         label="Track 1";
         fontname="Arial";
+        style="dotted";
         
         Osc1 [shape="box", label="Oscillator", group="main"];
         Filter1 [shape="box", label="Filter", group="main"];
-        Vol1 [shape="triangle", orientation="270", fontsize="6", label="VOL", group="main", width=0.5, height=0.4]
-        Dry1 [shape="triangle", orientation="270", fontsize="6", label="DRY", width=0.5, height=0.4];
-        Srv1 [shape="triangle", orientation="270", fontsize="6", label="SRV", width=0.5, height=0.4];
-        Sdl1 [shape="triangle", orientation="270", fontsize="6", label="SDL", width=0.5, height=0.4];
-        Sch1 [shape="triangle", orientation="270", fontsize="6", label="SCH", width=0.5, height=0.4];
+        Vol1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VOL", group="main", width=0.4, height=0.4]
+        Dry1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="DRY", width=0.4, height=0.4];
+        Srv1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SRV", width=0.4, height=0.4];
+        Sdl1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SDL", width=0.4, height=0.4];
+        Sch1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SCH", width=0.4, height=0.4];
         Eq1 [label="EQ", shape="box", group="main"]
         Limiter1 [image="limiter.svg", shape="none", label="AMP", group="main", labelloc="b"];
         LimiterPost1 [image="limiter_post.svg", shape="none", label="AMP", group="main", labelloc="b"];
@@ -46,10 +50,10 @@ digraph Instrument
 
         Eq27 [label="EQ", shape="box"]
 
-        Dry27 [shape="triangle", orientation="270", fontsize="6", label="DRY", width=0.5, height=0.4];
-        Srv27 [shape="triangle", orientation="270", fontsize="6", label="SRV", width=0.5, height=0.4];
-        Sdl27 [shape="triangle", orientation="270", fontsize="6", label="SDL", width=0.5, height=0.4];
-        Sch27 [shape="triangle", orientation="270", fontsize="6", label="SCH", width=0.5, height=0.4];
+        Dry27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="DRY", width=0.4, height=0.4];
+        Srv27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SRV", width=0.4, height=0.4];
+        Sdl27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SDL", width=0.4, height=0.4];
+        Sch27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="SCH", width=0.4, height=0.4];
 
 
         nonce27 [label=""];
@@ -65,10 +69,10 @@ digraph Instrument
         clustre=true;
         Input [shape="box"];
 
-        DryInput [shape="triangle", orientation="270", fontsize="6", label="IVO", width=0.5, height=0.4];
-        SrvInput [shape="triangle", orientation="270", fontsize="6", label="IRV", width=0.5, height=0.4];
-        SdlInput [shape="triangle", orientation="270", fontsize="6", label="IDE", width=0.5, height=0.4];
-        SchInput [shape="triangle", orientation="270", fontsize="6", label="ICH", width=0.5, height=0.4];
+        DryInput [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="IVO", width=0.4, height=0.4];
+        SrvInput [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="IRV", width=0.4, height=0.4];
+        SdlInput [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="IDE", width=0.4, height=0.4];
+        SchInput [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="ICH", width=0.4, height=0.4];
 
         Input -> DryInput -> Mix;
         Input -> SrvInput -> reSum1;
@@ -76,44 +80,11 @@ digraph Instrument
         Input -> SchInput -> chSum1;
     }
 
-/*
-    subgraph Track8 {
-        cluster=true;
-        label="Track 8";
-        fontname="Arial";
-        
-        Osc8 [shape="box", label="Oscillator", group="main"];
-        Filter8 [shape="box", label="Filter", group="main"];
-        Vol8 [shape="triangle", orientation="270", fontsize="6", label="VOL", group="main", width=0.5, height=0.4]
-        Dry8 [shape="triangle", orientation="270", fontsize="6", label="DRY", width=0.5, height=0.4];
-        Srv8 [shape="triangle", orientation="270", fontsize="6", label="SRV", width=0.5, height=0.4];
-        Sdl8 [shape="triangle", orientation="270", fontsize="6", label="SDL", width=0.5, height=0.4];
-        Sch8 [shape="triangle", orientation="270", fontsize="6", label="SCH", width=0.5, height=0.4];
-        Eq8 [label="EQ", shape="box", group="main"]
-        Limiter8 [image="limiter.svg", shape="none", label="AMP", group="main", labelloc="b"];
-        LimiterPost8 [image="limiter_post.svg", shape="none", label="AMP", group="main", labelloc="b"];
-
-        Osc8 -> Limiter8;
-
-        Limiter8 -> Filter8;
-        Filter8 -> LimiterPost8;
-
-        LimiterPost8 -> Vol8;
-        Vol8 -> Eq8;
-
-        Eq8 -> Dry8;
-        Eq8 -> Srv8;
-        Eq8 -> Sch8;
-        Eq8 -> Sdl8;
-    }
-    */
-
-
     Mix [group="main"];
     eqD [label="Eq Delay", shape="box"];
 
     {
-        deSum1 [label="+", shape="circle", rank="same"];
+        deSum1 [label="+", shape="circle", rank="same", fontsize="15", margin="0"];
         Sdl1 -> M1D -> deSum1;
         Sdl27 -> M27D -> deSum1 [style="dotted"];
     }
@@ -122,19 +93,19 @@ digraph Instrument
         eqR  [label="Eq Reverb", shape="box"];
         eqC  [label="Eq Chorus", shape="box"];
 
-        chSum1 [label="+", shape="circle", rank="same"];
-        reSum1 [label="+", shape="circle"];
+        chSum1 [label="+", shape="circle", rank="same", fontsize="15", margin="0"];
+        reSum1 [label="+", shape="circle", fontsize="15", margin="0"];
 
-        M1 [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
-        M1R [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
-        M1C [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
-        M1D [shape="triangle", orientation="270", fontsize="6", label="VT1", width=0.5, height=0.4];
-        M27 [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
-        M27R [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
-        M27D [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
-        M27C [shape="triangle", orientation="270", fontsize="6", label="VT2-7", width=0.5, height=0.4];
-        // M8 [shape="triangle", orientation="270", fontsize="6", label="VT8", width=0.5, height=0.4];
-        Mix [label="+", shape="circle"];
+        M1 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
+        M1R [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
+        M1C [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
+        M1D [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
+        M27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
+        M27R [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
+        M27D [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
+        M27C [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
+        // M8 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT8", width=0.4, height=0.4];
+        Mix [label="+", shape="circle", fontsize="15", margin="0"];
         Dry1 -> M1;
         // Dry8 -> M8;
         Dry27 -> M27
@@ -151,23 +122,23 @@ digraph Instrument
         // Sch8 -> chSum1;
     }
 
-    MixDelay [shape="triangle", orientation="270", fontsize="6", label="VDE", width=0.5, height=0.4];
-    MixReverb [shape="triangle", orientation="270", fontsize="6", label="VRE", width=0.5, height=0.4];
-    MixChorus [shape="triangle", orientation="270", fontsize="6", label="VCH", width=0.5, height=0.4];
+    MixDelay [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VDE", width=0.4, height=0.4];
+    MixReverb [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VRE", width=0.4, height=0.4];
+    MixChorus [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VCH", width=0.4, height=0.4];
 
     Chorus [shape="box"];
 
     {
         rank=same;
         Reverb [shape="box"];
-        ReverbFBK [shape="triangle", orientation="90", fontsize="6", label="XRD", width=0.5, height=0.4];
+        ReverbFBK [shape="triangle", margin="0.001", orientation="90", fontsize="6", label="XRD", width=0.4, height=0.4];
         Reverb -> ReverbFBK -> Reverb;
     }
 
     {
         rank=same;
         Delay [shape="box"];
-        DelayFBK [shape="triangle", orientation="90", fontsize="6", label="XDF", width=0.5, height=0.4];
+        DelayFBK [shape="triangle", margin="0.001", orientation="90", fontsize="6", label="XDF", width=0.4, height=0.4];
         Delay -> DelayFBK -> Delay;
     }
 
@@ -175,17 +146,17 @@ digraph Instrument
     chSum1 -> eqC -> Chorus -> MixChorus -> Mix;
     reSum1 -> eqR -> Reverb -> MixReverb -> Mix;
 
-    chorusRevSend [shape="triangle", orientation="270", fontsize="6", label="XCR", width=0.5, height=0.4];
+    chorusRevSend [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="XCR", width=0.4, height=0.4];
     Chorus -> chorusRevSend -> reSum1;
 
-    delayRevSend [shape="triangle", orientation="270", fontsize="6", label="XDR", width=0.5, height=0.4];
+    delayRevSend [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="XDR", width=0.4, height=0.4];
     Delay -> delayRevSend -> reSum1;
 
     DJF [shape="box", label="DJ Filter"];
     globalEq [shape="box", label="Master EQ"];
-    globalLimiter [image="limiter.svg", shape="none", label="Global limiter", group="main", labelloc="b"];
-    globalMix [shape="triangle", orientation="270", fontsize="6", label="VMV", width=0.5, height=0.4];
+    globalLimiter [image="limiter.svg", shape="none", label="Global limiter", group="main", labelloc="b", margin="0"];
+    globalMix [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VMV", width=0.4, height=0.4];
 
-    Mix -> DJF -> globalLimiter -> globalEq -> globalMix -> output;
+    Mix -> DJF -> globalEq -> globalLimiter -> globalMix -> output;
 }
 

@@ -1,4 +1,10 @@
 
-all:
-	dot -Tsvg .\m8_instr_sig_path.gv -o m8_instr_sig_path.svg
+# m8_instr_sig_path.pdf
+all: m8_instr_sig_path.svg
+
+%.pdf: %.gv
+	dot -Tpdf $^ -o $@
+
+%.svg: %.gv
+	dot -Tsvg $^ -o $@
 
