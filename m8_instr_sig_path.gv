@@ -100,10 +100,10 @@ digraph Instrument
         M1R [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
         M1C [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
         M1D [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT1", width=0.4, height=0.4];
-        M27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
-        M27R [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
-        M27D [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
-        M27C [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-7", width=0.4, height=0.4];
+        M27 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-8", width=0.4, height=0.4];
+        M27R [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-8", width=0.4, height=0.4];
+        M27D [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-8", width=0.4, height=0.4];
+        M27C [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT2-8", width=0.4, height=0.4];
         // M8 [shape="triangle", margin="0.001", orientation="270", fontsize="6", label="VT8", width=0.4, height=0.4];
         Mix [label="+", shape="circle", fontsize="15", margin="0"];
         Dry1 -> M1;
