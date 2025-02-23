@@ -2,7 +2,7 @@ digraph Instrument
 {
     // mikey303 beta-testing 07/07/2024 7:28 AM (my timezone)
     // Inst -> Amp (not POST) -> Filter -> Amp (POST) -> EQ -> Send
-    rankdir="LR";
+    rankdir="TB";
     shape="box";
     len="0.1";
     nodesep="0.05";
